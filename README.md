@@ -10,3 +10,4 @@ Services which represent different channels should be injected inside subscriber
 
 We can add subscribers to dispatcher for channels where we need to send events.
 
+Examples and test inside `EventDispatcherTest.php`
