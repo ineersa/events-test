@@ -39,4 +39,12 @@ class ApiSubscriber implements SubscriberInterface
     {
         $this->service->sendPayed($event);
     }
+
+    /**
+     * @return ApiService
+     */
+    public function getService(): ApiService
+    {
+        return $this->service;
+    }
 }

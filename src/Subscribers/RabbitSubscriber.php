@@ -39,4 +39,12 @@ class RabbitSubscriber implements SubscriberInterface
     {
         $this->service->queuePayed($event);
     }
+
+    /**
+     * @return RabbitService
+     */
+    public function getService(): RabbitService
+    {
+        return $this->service;
+    }
 }

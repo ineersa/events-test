@@ -39,4 +39,12 @@ class SQLSubscriber implements SubscriberInterface
     {
         $this->service->savePayed($event);
     }
+
+    /**
+     * @return SQLService
+     */
+    public function getService(): SQLService
+    {
+        return $this->service;
+    }
 }
