@@ -1,9 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace App\DataObjects;
+namespace App\Events;
 
-final class UserBanned
+use App\Interfaces\EventInterface;
+
+final class UserBanned implements EventInterface
 {
     /**
      * @var int

@@ -1,9 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace App\DataObjects;
+namespace App\Events;
 
-final class UserRegistered
+use App\Interfaces\EventInterface;
+
+final class UserPayed implements EventInterface
 {
     /**
      * @var int
@@ -14,15 +16,15 @@ final class UserRegistered
      */
     private $userId;
     /**
-     * @var string
+     * @var int
      */
-    private $source;
+    private $amount;
 
-    public function __construct(int $time, int $userId, string $source)
+    public function __construct(int $time, int $userId, int $amount)
     {
         $this->setTime($time);
         $this->setUserId($userId);
-        $this->setSource($source);
+        $this->setAmount($amount);
     }
 
     /**
@@ -58,18 +60,18 @@ final class UserRegistered
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getSource(): string
+    public function getAmount(): int
     {
-        return $this->source;
+        return $this->amount;
     }
 
     /**
-     * @param string $source
+     * @param int $amount
      */
-    public function setSource(string $source): void
+    public function setAmount(int $amount): void
     {
-        $this->source = $source;
+        $this->amount = $amount;
     }
 }

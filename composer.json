@@ -16,7 +16,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Events\\": "src/",
+            "App\\": "src/",
             "App\\Tests\\": "tests/"
         }
     },
