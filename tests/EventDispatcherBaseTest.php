@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Tests;
 
 use App\EventDispatcher;
@@ -37,14 +38,13 @@ class EventDispatcherBaseTest extends TestCase
 
 class TestSubscriber implements SubscriberInterface
 {
-
     public $isEventReceived = false;
     public $eventName = '';
 
     public function getSubscribedEvents(): array
     {
         return [
-            TestEvent::class => 'testEvent'
+            TestEvent::class => 'testEvent',
         ];
     }
 

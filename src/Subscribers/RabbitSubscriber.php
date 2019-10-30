@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Subscribers;
 
 use App\Events\UserBanned;

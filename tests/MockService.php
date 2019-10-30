@@ -10,7 +10,7 @@ abstract class MockService
     {
         $this->callStack[] = [
             'method' => $name,
-            'args' => $arguments
+            'args' => $arguments,
         ];
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App;
@@ -22,7 +23,7 @@ class EventDispatcher implements EventDispatcherInterface
         }
     }
 
-    public function dispatch(EventInterface $event) : void
+    public function dispatch(EventInterface $event): void
     {
         foreach ($this->subscribers as $class => $object) {
             $subscribedEvents = $object->getSubscribedEvents();

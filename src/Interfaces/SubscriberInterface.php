@@ -1,7 +1,8 @@
 <?php
+
 namespace App\Interfaces;
 
 interface SubscriberInterface
 {
-    public function getSubscribedEvents() : array;
+    public function getSubscribedEvents(): array;
 }
