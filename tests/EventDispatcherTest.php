@@ -75,4 +75,26 @@ class EventDispatcherTest extends TestCase
         $this->assertEquals('queueBanned', $callStack[0]['method']);
         $this->assertEquals($this->userBannedEvent, $callStack[0]['args'][0]);
     }
+
+    public function testAllEvents()
+    {
+        $sqlSubscriber = clone $this->sqlSubscriber;
+        $apiSubscriber = clone $this->apiSubscriber;
+        $rabbitSubscriber = clone $this->rabbitSubscriber;
+
+        $eventDispatcher = new EventDispatcher();
+        $eventDispatcher->addSubscriber($sqlSubscriber);
+        $eventDispatcher->addSubscriber($apiSubscriber);
+        $eventDispatcher->addSubscriber($rabbitSubscriber);
+
+        $eventDispatcher->dispatch($this->userRegisteredEvent);
+        $eventDispatcher->dispatch($this->userPayedEvent);
+        $eventDispatcher->dispatch($this->userBannedEvent);
+
+        $callStack = $sqlSubscriber->getService()->getCallStack();
+        $this->assertNotEmpty($callStack);
+        $this->assertContains('saveRegistered', $callStack[0]);
+        $this->assertContains('savePayed', $callStack[1]);
+        $this->assertContains('saveBanned', $callStack[2]);
+    }
 }
