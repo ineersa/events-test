@@ -6,7 +6,6 @@ namespace App;
 
 use App\Interfaces\EventDispatcherInterface;
 use App\Interfaces\EventInterface;
-use App\Interfaces\SubscriberInterface;
 
 class EventDispatcher implements EventDispatcherInterface
 {
