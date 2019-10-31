@@ -4,7 +4,7 @@ namespace App\Tests;
 
 abstract class MockService
 {
-    private $callStack = [];
+    protected $callStack = [];
 
     public function __call($name, $arguments)
     {
